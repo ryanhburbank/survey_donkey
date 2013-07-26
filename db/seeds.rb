@@ -33,6 +33,6 @@ end
 150.times do
   Response.create(
                   answer_id: rand(1..Answer.all.count),
-                  responder_email: Faker::Internet.email
+                  email: Faker::Internet.email
                  )
 end
