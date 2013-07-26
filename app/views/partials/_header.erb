@@ -1,0 +1,13 @@
+<h1 class="banner" id="banner">Survey Donkey</h1>
+  <% if current_user %>
+    <nav>
+      <ul>
+        <li><a href="/user/:id/edit">Account Info</a></li>
+        <li><a href="/user/:id/profile">Profile</a></li>
+        <li><a href="/survey/new">Create a Survey</a></li>
+      </ul>
+    </nav>
+
+  <a class="logout" id="logout" href="/user/logout">Logout</a>
+  <% end %>
+
