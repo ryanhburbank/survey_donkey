@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(:version => 20130726154318) do
 
   create_table "responses", :force => true do |t|
     t.integer  "answer_id"
-    t.string   "responder_email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "surveys", :force => true do |t|
