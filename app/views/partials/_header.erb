@@ -1,14 +1,14 @@
-<h1 class="banner" id="banner">Survey Donkey</h1>
+<header>
+  <a href="/"><h1 class="banner" id="banner">Survey Donkey</h1></a>
   <% if current_user %>
     <nav>
       <ul>
         <li><a href="/users/edit">Account Info</a></li>
         <li><a href="/profile">Profile</a></li>
         <li><a href="/surveys/new">Create a Survey</a></li>
+        <li><a class="logout" id="logout" href="/users/logout">Logout</a></li>
       </ul>
     </nav>
-
-  <a class="logout" id="logout" href="/users/logout">Logout</a>
   <% end %>
+</header>
 
-¡
