@@ -3,9 +3,11 @@
   <ul>
     <% @questions.each do |question|  %>
     <li> Question: <%= question.text %> <br/>
-          <% question.answer.each do |answer| %>
-            <%= answer.text %><br/>
+        <ol> <% question.answers.each do |answer| %>
+            <li><%= answer.text %> - 
+                <data> <%= answer.responses.count %> </data></li>
           <% end %>
+        </ol>
     </li>
     <% end %>
   </ul>
