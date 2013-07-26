@@ -1,2 +1,26 @@
-i am in the profile
-<a href="/logout">Logout</a>
+<div class="container">
+  <a href="/logout">Logout</a>
+  <h2>All Surveys</h2>
+  <ul>
+   <% @surveys.each do |survey| %>
+    <li> <%= survey.title  %> 
+      <a href="/survey/<%= survey.id %>/edit"><button class="btn">Edit</button></a>
+      <a href="/survey/<%= survey.id %>/send"><button class="btn">Send</button></a>    
+      <a href="/survey/<%= survey.id %>/results"><button class="btn">Results</button></a>    
+      <a href="/survey/<%= survey.id %>/delete"><button class="btn">Delete</button></a>    
+    </li>
+    <% end %>
+  </ul> 
+
+  <h2>Sent Surveys</h2>
+  <ul>
+   <% @sent_surveys.each do |survey| %>
+    <li> <%= survey.title  %> 
+      <a href="/survey/<%= survey.id %>/edit"><button class="btn">Edit</button></a>
+      <a href="/survey/<%= survey.id %>/send"><button class="btn">Send</button></a>    
+      <a href="/survey/<%= survey.id %>/results"><button class="btn">Results</button></a>    
+      <a href="/survey/<%= survey.id %>/delete"><button class="btn">Delete</button></a>    
+    </li>
+    <% end %>
+  </ul> 
+</div>

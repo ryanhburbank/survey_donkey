@@ -1,5 +1,6 @@
+<h1 id="welcome-header">Welcome to Survey Donkey!</h1>
+<img src="images/donkey.jpg">
 <% if session[:id] %>
-  session present
   <a href="/logout">Logout</a>
 <% else %>
   <%= erb :'/partials/_login' %>
