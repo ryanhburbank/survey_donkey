@@ -1,6 +1,6 @@
 get '/survey/:id/results' do
   @survey = Survey.find(params[:id])
-  @response = 
+  @questions = @survey.questions
 
   erb :survey_results
 end

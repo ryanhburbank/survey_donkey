@@ -1,9 +1,11 @@
 <div class="container">
   <h2>Survey Results</h2>
   <ul>
-    <% @survey.each do |question|  %>
+    <% @questions.each do |question|  %>
     <li> Question: <%= question.text %> <br/>
-          <% %>
+          <% question.answer.each do |answer| %>
+            <%= answer.text %><br/>
+          <% end %>
     </li>
     <% end %>
   </ul>
