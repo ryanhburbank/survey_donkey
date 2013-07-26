@@ -4,7 +4,6 @@ end
 
 get '/users/register' do
   erb :index
-
 end
 
 post '/users/register' do
