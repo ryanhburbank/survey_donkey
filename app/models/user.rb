@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 
   has_many :questions, :through => :surveys
   has_many :surveys
-
+ 
 end
