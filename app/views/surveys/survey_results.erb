@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Survey Results</h2>
+  <ul>
+    <% @survey.each do |question|  %>
+    <li> Question: <%= question.text %> <br/>
+          <% %>
+    </li>
+    <% end %>
+  </ul>
+</div>
