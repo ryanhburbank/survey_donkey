@@ -5,5 +5,6 @@ class CreateResponses < ActiveRecord::Migration
       t.string :responder_email
 
       t.timestamps
+    end
   end
 end

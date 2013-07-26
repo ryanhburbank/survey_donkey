@@ -26,12 +26,20 @@ ActiveRecord::Schema.define(:version => 20130726154318) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "responses", :force => true do |t|
+    t.integer  "answer_id"
+    t.string   "responder_email"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "surveys", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "sent",       :default => 0
   end
 
   create_table "users", :force => true do |t|
