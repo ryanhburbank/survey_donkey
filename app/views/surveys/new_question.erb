@@ -1,0 +1,7 @@
+<form id="new_question" action="surveys/<=% @survey.id %>/question/new" method="POST">
+  <input class="question_text" id="question_text" type="text" name="text" placeholder="write your question here">
+  <label>Write your answers here, write each answer on its own line.
+  <textarea cols="5" rows="10" form="new_question" class="question_answers" id="question_answers" type="text" name="answers" placeholder="write your answers here..."></textarea> 
+  </label>
+  <input type="submit" value="Add this question.">
+</form>
