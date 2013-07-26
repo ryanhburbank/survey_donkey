@@ -2,12 +2,12 @@ get '/' do
   erb :index
 end
 
-get '/register' do
+get '/users/register' do
   erb :index
 
 end
 
-post '/register' do
+post '/users/register' do
   p params
   puts request.body.read
   user = User.new(password: params[:password], 
@@ -23,11 +23,11 @@ post '/register' do
   end
 end
 
-get '/login' do
+get '/users/login' do
   erb :index
 end
 
-post '/login' do
+post '/users/login' do
   user = User.find_by_email(params[:email])
   if user
     session[:id] = user.id
@@ -37,7 +37,7 @@ post '/login' do
   end
 end
 
-get '/logout' do 
+get '/users/logout' do 
   session[:id] = nil
   redirect to('/')
 end
