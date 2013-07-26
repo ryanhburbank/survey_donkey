@@ -4,6 +4,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.belongs_to :user
       t.string     :title
       t.string     :url
+      
       t.timestamps
     end
   end
