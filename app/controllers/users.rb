@@ -1,9 +1,13 @@
 get '/profile' do
-  @user = User.find(session[:id])
-  @surveys = @user.surveys.all
-  @sent_surveys = @user.surveys.where(sent: 1)
-  p @sent_surveys
-  erb :'/users/profile'
+  if logged_in?
+    user = current_user
+    @surveys = all_surveys(user)
+    @sent_surveys = sent_surveys
+    erb :'/users/profile'
+  else
+    access_failure
+    erb :index
+  end
 end
 
 get '/users/register' do
@@ -11,8 +15,6 @@ get '/users/register' do
 end
 
 post '/users/register' do
-  p params
-  puts request.body.read
   user = User.new(password: params[:password], 
                   password_confirmation: params[:password_confirmation], 
                   email: params[:email])
@@ -21,7 +23,7 @@ post '/users/register' do
     p session
     redirect to('/profile') #change me to redirect to profile when we have it
   else
-    p user.errors
+    registration_errors(user)
     redirect to('/register')
   end
 end
@@ -31,16 +33,16 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  user = User.find_by_email(params[:email])
-  if user
+  if login_valid?
     session[:id] = user.id
     redirect to('/profile') #change me to redirect to profile when we have it
   else
+    login_failure
     redirect to('/login')
   end
 end
 
 get '/users/logout' do 
-  session[:id] = nil
+  session.clear
   redirect to('/')
 end

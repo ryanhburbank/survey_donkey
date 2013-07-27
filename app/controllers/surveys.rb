@@ -1,14 +1,10 @@
-get '/surveys/new' do
+post '/surveys/new' do
   user = User.find(session[:id])
   if user
     survey = Survey.new(title: "New Survey", user_id: user.id)
-    puts "SURVEY BEFORE SAVE"
-    p survey
     survey.save
-    puts "SAVED SURVEY"
-    p survey
   else
-    #flash message that user must be logged in
+    errors_message(survey)
     redirect to('/')
   end
     redirect to("/survey/#{survey.id}/edit")
@@ -20,7 +16,7 @@ get '/surveys/:survey_id/results' do
 
     erb :'/surveys/survey_results'
   else
-    access_failure
+    get_failure
     erb :index
   end
 end
@@ -31,7 +27,7 @@ get '/surveys/:survey_id/edit' do
     @questions = @survey.questions.order("id")
     erb :'/surveys/edit_survey'
   else
-    access_failure
+    get_failure
     erb :index
   end
 end
@@ -43,7 +39,7 @@ post '/surveys/questions/:question_id/edit' do
     Question.update(@question.id, :text => params[:question][:text])
     redirect back
   else 
-    update_failure
+    post_failure
     erb :index
   end
 end
@@ -53,7 +49,7 @@ get '/surveys/question/:question_id/edit' do
   if authorized?(@question.survey.id)
     erb :'/surveys/edit_survey'
   else
-    access_failure
+    get_failure
     erb :index
   end
 end
@@ -64,7 +60,7 @@ post '/surveys/:survey_id/edit' do
     Survey.update(params[:survey_id], :title => params[:survey][:title])
     redirect back
   else
-    update_failure
+    post_failure
     erb :index
   end
 end
@@ -74,7 +70,7 @@ get '/surveys/:survey_id' do
   if authorized?(params[:survey_id])
     redirect to("/surveys/#{params[:survey_id]}/edit")
   else 
-    access_failure
+    get_failure
     erb :index
   end
 end
