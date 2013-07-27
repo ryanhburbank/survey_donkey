@@ -6,5 +6,6 @@ class Answer < ActiveRecord::Base
             :uniqueness => true, 
             :presence => true
 
-  validates_uniqueness_of :text, :scope => :question_id
+  validates_uniqueness_of :text, 
+                          :scope => :question_id
 end

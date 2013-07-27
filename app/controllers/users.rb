@@ -47,3 +47,26 @@ get '/users/logout' do
   session.clear
   redirect to('/')
 end
+
+get '/users/edit' do
+  @user = current_user
+  if @user
+    erb :'/users/edit_account'
+  else
+    get_failure
+    redirect to('/')
+  end
+end
+
+post '/users/edit/password' do 
+  user = current_user
+  password_update(params[:current_password], 
+                 params[:new_password], 
+                 params[:new_password_confirmation])
+end
+
+post '/users/edit/email' do
+  @user = current_user
+  email_update(params[:current_password],
+               params[:new_email])
+end
