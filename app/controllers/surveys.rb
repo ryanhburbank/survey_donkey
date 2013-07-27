@@ -5,6 +5,7 @@ get '/surveys/new' do
     puts "SURVEY BEFORE SAVE"
     p survey
     survey.save
+    survey.unique_url
     puts "SAVED SURVEY"
     p survey
   else
@@ -13,6 +14,7 @@ get '/surveys/new' do
   end
     redirect to("/survey/#{survey.id}/edit")
 end
+
 get '/survey/:id/results' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
@@ -65,4 +67,4 @@ get '/url/:url' do
   @survey = Survey.find_by_url(params[:url])
   
   redirect to("/survey/#{@survey.id}")
-end`  ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````                                                                                                                                                                                                                                                                                        
+end

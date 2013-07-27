@@ -16,16 +16,17 @@ post '/questions/:survey_id/new' do
   redirect back
 end
 
-post '/questions/:question_id/delete' do
-  Question.find(params[:question_id]).destroy
-  redirect back
-end
-
 post '/questions/:question_id/edit' do
   @question = Question.find(params[:question_id])
   Question.update(@question.id, :text => params[:question][:text])
   redirect back
 end
+
+post '/questions/:question_id/delete' do
+  Question.find(params[:question_id]).destroy
+  redirect back
+end
+
 
 
 
