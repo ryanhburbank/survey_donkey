@@ -13,41 +13,70 @@ get '/surveys/new' do
   end
     redirect to("/survey/#{survey.id}/edit")
 end
-get '/survey/:id/results' do
-  @survey = Survey.find(params[:id])
-  @questions = @survey.questions
+get '/surveys/:survey_id/results' do
+  if authorized?(params[:survey_id]) 
+    @survey = current_survey(params[:survey_id])
+    @questions = @survey.questions
 
-  erb :'/surveys/survey_results'
+    erb :'/surveys/survey_results'
+  else
+    access_failure
+    erb :index
+  end
 end
 
-get '/survey/:survey_id/edit' do
-  @survey = Survey.find(params[:survey_id])
-  @questions = @survey.questions.order("id")
-  p @questions
-  erb :'/surveys/edit_survey'
-end
-
-
-post '/survey/questions/:question_id/edit' do
-  @question = Question.find(params[:question_id])
-  Question.update(@question.id, :text => params[:question][:text])
-  redirect back
-end
-
-get '/survey/question/:question_id/edit' do
-  erb :'/surveys/edit_survey'
-end
-
-post '/survey/:survey_id/edit' do
-  @survey_title = params[:survey][:title]
-  Survey.update(params[:survey_id], :title => params[:survey][:title])
-  redirect back
+get '/surveys/:survey_id/edit' do
+  if authorized?(params[:survey_id]) 
+    @survey = current_survey(params[:survey_id])
+    @questions = @survey.questions.order("id")
+    erb :'/surveys/edit_survey'
+  else
+    access_failure
+    erb :index
+  end
 end
 
 
-get '/survey/:id' do
-  @questions = Survey.find_by_id(params[:id]).questions
-  erb :"/surveys/take_survey"
+post '/surveys/questions/:question_id/edit' do
+  @question = current_question(params[:question_id])
+  if authorized?(@question.survey.id)
+    Question.update(@question.id, :text => params[:question][:text])
+    redirect back
+  else 
+    update_failure
+    erb :index
+  end
+end
+
+get '/surveys/question/:question_id/edit' do
+  question = current_question(params[:question_id])
+  if authorized?(@question.survey.id)
+    erb :'/surveys/edit_survey'
+  else
+    access_failure
+    erb :index
+  end
+end
+
+post '/surveys/:survey_id/edit' do
+  if authorized?(params[:survey_id])
+    @survey_title = params[:survey][:title]
+    Survey.update(params[:survey_id], :title => params[:survey][:title])
+    redirect back
+  else
+    update_failure
+    erb :index
+  end
+end
+
+
+get '/surveys/:survey_id' do
+  if authorized?(params[:survey_id])
+    redirect to("/surveys/#{params[:survey_id]}/edit")
+  else 
+    access_failure
+    erb :index
+  end
 end
 
 post '/survey/:id/response' do
@@ -63,6 +92,6 @@ end
 
 get '/url/:url' do
   @survey = Survey.find_by_url(params[:url])
-  
-  redirect to("/survey/#{@survey.id}")
-end`  ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````                                                                                                                                                                                                                                                                                        
+  erb :"/surveys/take_survey"
+  # redirect to("/survey/#{@survey.id}")
+end
