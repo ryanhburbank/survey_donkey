@@ -33,7 +33,8 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  if login_valid?(params[:email], params[:password])
+  user = User.find_by_email(params[:email])
+  if user.authenticate(params[:password])
     session[:id] = user.id
     redirect to('/profile') #change me to redirect to profile when we have it
   else
