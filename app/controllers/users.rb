@@ -2,7 +2,7 @@ get '/profile' do
   if logged_in?
     user = current_user
     @surveys = all_surveys(user)
-    @sent_surveys = sent_surveys
+    @sent_surveys = sent_surveys(user)
     erb :'/users/profile'
   else
     get_failure

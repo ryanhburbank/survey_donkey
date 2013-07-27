@@ -43,7 +43,7 @@ def all_surveys(user)
 end
 
 def sent_surveys(user)
-  user.surveys.where(sent:1)
+  user.surveys.where(:sent => 1)
 end
 
 
