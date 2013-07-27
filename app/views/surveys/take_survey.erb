@@ -1,0 +1,13 @@
+<h2> Please fill out all of the below.</h2>
+
+<form action="/survey/<%=@questions.first.survey_id%>/response" method="post">
+<label >Email: <input type="email" name="email" value="Enter email address."></label><br><br>
+  <% @questions.each do |question|%>
+    <%= question.text%>
+    <% question.answers.each do |answer| %>
+      <input type="radio" name="<%=question.id%>" value="<%=answer.id%>">
+      <%= answer.text %>
+    <%end%><br><br>
+  <% end %>
+  <input type="submit" value="I'm finished">
+</form>
