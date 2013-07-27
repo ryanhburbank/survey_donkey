@@ -20,3 +20,9 @@ post '/survey/:id/response' do
 
   redirect to('/thanks')
 end
+
+get '/url/:url' do
+  @survey = Survey.find_by_url(params[:url])
+  
+  redirect to("/survey/#{@survey.id}")
+end`  ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````                                                                                                                                                                                                                                                                                        
