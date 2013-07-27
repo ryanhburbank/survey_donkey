@@ -23,6 +23,7 @@ def login_valid?(email, password)
 
   user = User.find_by_email(email)
   if user
+    p user
     true if user.password == password
   else
     false
