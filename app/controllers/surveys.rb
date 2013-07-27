@@ -11,15 +11,12 @@ get '/survey/:id' do
 end
 
 post '/survey/:id/response' do
-  p params 
   @survey = Survey.find_by_id(params[:id])
   @survey.questions.each do |question|
     response = Response.new(:email => params[:email],
                             :answer_id => params[:"#{question.id}"])
-
     response.save
-    p response.errors
   end
 
-  redirect to('/')
+  redirect to('/thanks')
 end

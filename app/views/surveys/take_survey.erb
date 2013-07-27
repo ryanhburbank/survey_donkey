@@ -1,7 +1,7 @@
 <h2> Please fill out all of the below.</h2>
 
 <form action="/survey/<%=@questions.first.survey_id%>/response" method="post">
-<label >Email: <input type="email" name="email"></label><br><br>
+<label >Email: <input type="email" name="email" value="Enter email address."></label><br><br>
   <% @questions.each do |question|%>
     <%= question.text%>
     <% question.answers.each do |answer| %>
