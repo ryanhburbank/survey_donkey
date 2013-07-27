@@ -1,4 +1,4 @@
-post '/surveys/new' do
+get '/surveys/new' do
   user = User.find(session[:id])
   if user
     survey = Survey.new(title: "New Survey", user_id: user.id)
@@ -8,7 +8,7 @@ post '/surveys/new' do
     errors_message(survey)
     redirect to('/')
   end
-    redirect to("/survey/#{survey.id}/edit")
+    redirect to("/surveys/#{survey.id}/edit")
 end
 
 
