@@ -1,16 +1,60 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
-}
-th {
-  text-align: left;
+/*font-family: droid-sans, sans-serif;
+font-family: droid-serif, serif;*/
+/*============GLOBAL STYLING BY ELEMENT TYPE================*/
+
+.btn {
+  -moz-box-shadow:inset 0px 0px 11px -2px #ffffff;
+  -webkit-box-shadow:inset 0px 0px 11px -2px #ffffff;
+  box-shadow:inset 0px 0px 11px -2px #ffffff;
+  background-color:transparent;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#777777;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:1px 1px 2px #ffffff;
 }
 
+.btn:active {
+  position:relative;
+  top:1px;
+}
+
+li {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: droid-sans, sans-serif;
+  color: #575757;
+}
+
+p, li {
+  font-family: droid-serif, serif
+  color: #575757;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/*======================HEADER===========================*/
 header {
-  background-color: #3eafff;
   width: 100%;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+header img {
+  float: left;
+  margin-right: 10px;
   height: 50px;
 }
 header ul {
@@ -27,28 +71,71 @@ header a {
   color: black;
 }
 
-header a:hover {
-  color: #FFF;
-}
-
 .banner {
+  font-family: poiret-one, sans-serif;
   float: left;
-  margin-top: 6px;
-  margin-left: 10px;
+  margin-top: 10px;
+  
 }
 
-#welcome {
+/*=======================INDEX============================*/
+
+
+.welcome {
+  font-family: droid-sans, sans-serif;
   text-align: center;
+  margin-right: 160px;
+  margin-bottom: 160px;
+  color: #575757;
 }
+
 
 img {
-  margin-left: 50px;
   float: left;
+  clear: left;
+  margin-left: 50px;
+  margin-right: 100px;
+
 }
 
+.index-create {
+  margin-top: 250px;
+  -moz-box-shadow:inset 0px 1px 10px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 10px 0px #ffffff;
+  box-shadow:inset 0px 1px 10px 0px #ffffff;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+  background-color:#ededed;
+  -moz-border-radius:11px;
+  -webkit-border-radius:11px;
+  border-radius:11px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#777777;
+  font-family:arial;
+  font-size:43px;
+  font-weight:bold;
+  padding:10px 44px;
+  text-decoration:none;
+  text-shadow:2px 2px 7px #ffffff;
+}
+.index-create:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  background-color:#dfdfdf;
+}
+.index-create:active {
+  position:relative;
+  top:1px;
+}
+
+
+/*================LOGIN / REGISTER FORMS======================*/
 .login {
   float: left;
-  width: 400px;
+  width: 300px;
 }
 
 .register {
@@ -56,13 +143,59 @@ img {
 }
 
 .form_container {
+  font-family: droid-serif, serif;
+  float: left;
   margin-left: auto;
   margin-right: auto;
   width: 700px;
   height: 150px;
+  margin-top: 200px;
+}
+
+.form_container label {
+  color: #FFF;
+}
+
+.form_container input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.login .btn {
+  margin-top: 10px;
+}
+
+.register .btn {
+  margin-top: 10px;
+}
+
+/*========================= PROFILE ================================*/
+.sent-surveys {
+  float:left;
+  margin-left: 100px;
+
+}
+
+.all-surveys {
+  float:left;
+}
+
+.all-surveys li {
+  margin-top: 10px;
+}
+
+.survey-list {
+  font-size: 1.2em;
+}
+
+.list-title {
+  margin-left: 50px;
 }
 
 .answer-text {
   width: 600px;
   margin-left: 50px;
 }
+
+

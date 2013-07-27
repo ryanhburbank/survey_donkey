@@ -14,12 +14,17 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="//use.edgefonts.net/poiret-one.js"></script> 
+  <script src="//use.edgefonts.net/pt-sans-narrow.js"></script>
+  <script src="//use.edgefonts.net/droid-sans;droid-serif.js"></script>
 
-  <title></title>
+  <title>Survey Donkey</title>
 </head>
-<body>
-  <%= erb :'/partials/_header' %>
-  <%= erb :'/partials/_flash_messages' %>
-  <%= yield %>
-</body>
+  <body>
+    <%= erb :'/partials/_header' %>
+    <div class="main-content-container">
+      <%= erb :'/partials/_flash_messages' %>
+      <%= yield %>
+    </div>
+  </body>
 </html>
