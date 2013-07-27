@@ -18,7 +18,7 @@ require 'faker'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+require 'digest/md5'
 require 'erb'
 
 # Some helper constants for path-centric logic
