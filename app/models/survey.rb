@@ -4,6 +4,9 @@ class Survey < ActiveRecord::Base
   has_many   :answers, :through => :questions
   has_many   :questions
 
+  validates :title, :presence => true
+  
+
   def unique_url
     self.url = Digest::MD5.hexdigest("#{self.id}")
     self.save
