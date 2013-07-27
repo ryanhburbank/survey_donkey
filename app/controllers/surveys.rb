@@ -34,6 +34,16 @@ get '/surveys/:survey_id/edit' do
   end
 end
 
+get '/surveys/:survey_id/send' do
+  if authorized?(params[:survey_id])
+    @survey = current_survey(params[:survey_id])
+    erb :'surveys/send_survey'
+  else
+    get_failure
+    redirect to('/')
+  end
+end
+
 
 post '/surveys/questions/:question_id/edit' do
   @question = current_question(params[:question_id])
@@ -77,9 +87,9 @@ get '/surveys/:survey_id' do
   end
 end
 
-post '/survey/:id/response' do
-  @survey = Survey.find_by_id(params[:id])
-  @survey.questions.each do |question|
+post '/surveys/:id/response' do
+  survey = Survey.find_by_id(params[:id])
+  survey.questions.each do |question|
     response = Response.new(:email => params[:email],
                             :answer_id => params[:"#{question.id}"])
     response.save
@@ -88,9 +98,14 @@ post '/survey/:id/response' do
   redirect to('/thanks')
 end
 
+
 get '/url/:url' do
-  @survey = Survey.find_by_url(params[:url]) 
-  redirect to("/survey/#{@survey.id}")
-  erb :"/surveys/take_survey"
+  @survey = Survey.find_by_url(params[:url])
+  if @survey
+    erb :"/surveys/take_survey"
+  else
+    flash[:error] = "no survey found!"
+    redirect to('/')
+  end
   # redirect to("/survey/#{@survey.id}")
 end
