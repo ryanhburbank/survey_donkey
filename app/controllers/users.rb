@@ -5,7 +5,7 @@ get '/profile' do
     @sent_surveys = sent_surveys
     erb :'/users/profile'
   else
-    access_failure
+    get_failure
     erb :index
   end
 end
