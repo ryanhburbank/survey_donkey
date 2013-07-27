@@ -5,7 +5,8 @@
     <li> Question: <%= question.text %> <br/>
         <ol> <% question.answers.each do |answer| %>
             <li><%= answer.text %> - 
-                <data> <%= answer.responses.count %> </data></li>
+                <data> <%= answer.responses.count %></data>
+              </li>
           <% end %>
         </ol>
     </li>
