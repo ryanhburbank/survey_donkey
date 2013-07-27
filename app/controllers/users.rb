@@ -29,16 +29,16 @@ post '/users/register' do
 end
 
 get '/users/login' do
-  erb :index
+  redirect to('/')
 end
 
 post '/users/login' do
-  if login_valid?
+  if login_valid?(params[:email], params[:password])
     session[:id] = user.id
     redirect to('/profile') #change me to redirect to profile when we have it
   else
     login_failure
-    redirect to('/login')
+    redirect to('/')
   end
 end
 

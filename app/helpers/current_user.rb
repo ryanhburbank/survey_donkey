@@ -19,9 +19,14 @@ def logged_in?
 end
 
 
-def login_valid?(email)
-  user = User.find_by_email(params[:email])
-  true if user.password == params[:password]
+def login_valid?(email, password)
+
+  user = User.find_by_email(email)
+  if user
+    true if user.password == password
+  else
+    false
+  end
 end
 
 def authorized?(survey_id)
@@ -43,7 +48,7 @@ end
 
 
 def current_question(question_id)
-  Question.find(params[:question_id])
+  Question.find(question_id)
 end
 
 def get_failure
