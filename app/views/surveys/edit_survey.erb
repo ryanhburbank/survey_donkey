@@ -1,7 +1,7 @@
 
 <h2>Current Survey: <%= @survey.title %></h2>
 
-<form action="/survey/<%= @survey.id %>/edit" method="post">
+<form action="/surveys/<%= @survey.id %>/edit" method="post">
   <input type="text" value="<%= @survey.title %>" name="survey[title]">
   <input class="survey_edit_buttons" type="submit" value="Edit Title">
 </form>

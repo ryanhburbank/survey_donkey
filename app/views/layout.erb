@@ -18,12 +18,13 @@
   <script src="//use.edgefonts.net/pt-sans-narrow.js"></script>
   <script src="//use.edgefonts.net/droid-sans;droid-serif.js"></script>
 
-  <title></title>
+  <title>Survey Donkey</title>
 </head>
-<body>
-  <%= erb :'/partials/_header' %>
-  <div class="main-content-container">
-    <%= yield %>
-  </div>
-</body>
+  <body>
+    <%= erb :'/partials/_header' %>
+    <div class="main-content-container">
+      <%= erb :'/partials/_flash_messages' %>
+      <%= yield %>
+    </div>
+  </body>
 </html>
