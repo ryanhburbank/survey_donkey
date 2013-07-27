@@ -3,17 +3,19 @@ post '/surveys/new' do
   if user
     survey = Survey.new(title: "New Survey", user_id: user.id)
     survey.save
+    survey.unique_url
   else
     errors_message(survey)
     redirect to('/')
   end
     redirect to("/survey/#{survey.id}/edit")
 end
+
+
 get '/surveys/:survey_id/results' do
   if authorized?(params[:survey_id]) 
     @survey = current_survey(params[:survey_id])
     @questions = @survey.questions
-
     erb :'/surveys/survey_results'
   else
     get_failure
@@ -87,7 +89,8 @@ post '/survey/:id/response' do
 end
 
 get '/url/:url' do
-  @survey = Survey.find_by_url(params[:url])
+  @survey = Survey.find_by_url(params[:url]) 
+  redirect to("/survey/#{@survey.id}")
   erb :"/surveys/take_survey"
   # redirect to("/survey/#{@survey.id}")
 end

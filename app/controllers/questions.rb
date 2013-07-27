@@ -31,6 +31,7 @@ post '/questions/:survey_id/new' do
   end
 end
 
+
 post '/questions/:question_id/delete' do
   question = Question.find(params[:question_id])
   if authorized?(question.survey_id)
@@ -42,6 +43,7 @@ post '/questions/:question_id/delete' do
   end
 end
 
+
 post '/questions/:question_id/edit' do
   @question = Question.find(params[:question_id])
   if authorized?(@question.survey_id)
@@ -52,6 +54,12 @@ post '/questions/:question_id/edit' do
     erb :index
   end
 end
+
+post '/questions/:question_id/delete' do
+  Question.find(params[:question_id]).destroy
+  redirect back
+end
+
 
 
 
