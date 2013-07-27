@@ -14,6 +14,7 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
+gem 'sinatra-flash'
 
 gem 'shotgun'
 gem 'faker'

@@ -3,7 +3,7 @@ def errors_message(object)
   object.errors.each_with_index do |error, index|
     error_message << "Error#{index +1 }: #{error}"
   end
-  flash[:errors] = error_message
+  flash[:error] = error_message
 end
 
 def current_user
