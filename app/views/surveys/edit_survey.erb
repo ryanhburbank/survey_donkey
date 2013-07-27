@@ -1,11 +1,30 @@
 
-<a href="/questions/:id/new">Add a question.</a>
+<h2>Current Survey: <%= @survey.title %></h2>
 
-<form id="Add_question" method="post" action="/questions/:id/new"><input class="survey_edit_buttons" type="submit" value="Add a question!"></form> 
+<form action="/survey/<%= @survey.id %>/edit" method="post">
+  <input type="text" value="<%= @survey.title %>" name="survey[title]">
+  <input class="survey_edit_buttons" type="submit" value="Edit Title">
+</form>
 
-<form id="send_survey" method="post" action="/surveys/:id/send"><input class="survey_edit_buttons" type="submit" value="Send a survey!"></form> 
+<form id="Add_question" method="post" action="/questions/<%= @survey.id %>/new">
+  <textarea rows="4" cols="40" name="question[text]"></textarea>
 
-<form id="results_display" method="post" action="/surveys/:id/results"><input class="survey_edit_buttons" type="submit" value="Display results!"></form>  
+  <input class="survey_edit_buttons" type="submit" value="Add Question">
+</form> 
+
+<% @questions.each do |question| %>
+  <ul>
+    <li>
+      <form action="/survey/questions/<%= question.id %>/edit" method="post">
+        <textarea rows="3" cols="80" name="question[text]"><%= question.text %></textarea>
+        <input class="survey_edit_buttons" type="submit" value="Update Question">
+      </form>
+    </li>
+  </ul>
+<% end %>
+<!-- <form id="results_display" method="post" action="/surveys/:id/results">
+  <input class="survey_edit_buttons" type="submit" value="Display results!">
+</form>  --> 
 <!-- 
 <form id="preview_survey" method="post" action="/surveys/:id/preview"><input class="survey_edit_buttons" type="submit" value="Display preview!"></form>
  -->
