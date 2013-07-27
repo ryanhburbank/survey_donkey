@@ -6,6 +6,10 @@ def errors_message(object)
   flash[:error] = error_message
 end
 
+def current_user?
+  @user ||= session[:id]
+end
+
 def current_user
   @user ||= User.find(session[:id])
 end
