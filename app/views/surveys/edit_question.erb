@@ -1,0 +1,7 @@
+
+  <form action="/survey/questions/<%= question.id %>/edit" method="post">
+    <textarea rows="4" cols="40" name="question[text]"><%= question.text %></textarea>
+      <!-- <input type="text" name="question[text]" value="<%= question.text %>"> -->
+    <input class="survey_edit_buttons" type="submit" value="Update">
+  </form>
+ 

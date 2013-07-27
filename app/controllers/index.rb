@@ -5,3 +5,4 @@ end
 get '/thanks' do
   erb :thanks
 end
+
