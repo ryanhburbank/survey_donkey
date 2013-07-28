@@ -8,20 +8,22 @@
 
   <form id="add-question-form" method="post" action="/questions/<%= @survey.id %>/new">
     <textarea id="question-textarea" rows="4" cols="40" name="question[text]"></textarea>
+    <span>
     <input id="add-question-btn" class="btn" type="submit" value="Add Question">
   </form> 
-
+  <a href="/surveys/<%= @survey.id %>/edit"><button class="btn">Back To Survey</button></a>
+  </span>
   <% @questions.each do |question| %>
     <ul>
-      <li>
-        <span>
+      <li class="edit-question-container">
+        <p><%= question.text %></p>
+        <span class="edit-question-buttons">
+          <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
+            <input class="btn delete-question-btn" type="submit" value="Delete">
+          </form>
           <a href="/questions/<%= question.id %>/edit"><button class="btn">Edit</button></a>
           <a href="/questions/<%= question.id %>/edit"><button class="btn">Add Responses</button></a>
-          <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
-            <input class="btn" type="submit" value="Delete">
-          </form>
         </span>
-          <%= question.text %>
       </li>
     </ul>
   <% end %>

@@ -27,7 +27,7 @@ font-family: droid-serif, serif;*/
 }
 
 li {
-  text-decoration: none;
+  list-style-type: none;
 }
 
 h1, h2, h3, h4 {
@@ -35,14 +35,16 @@ h1, h2, h3, h4 {
   color: #575757;
 }
 
-p, li {
+
+
+a {
   font-family: droid-serif, serif
   color: #575757;
 }
 
 a:visited {
   text-decoration: none;
-  color: black;
+  color: #575757;
 }
 
 textarea {
@@ -56,6 +58,7 @@ textarea {
  resize: none;
  outline: none;
  margin-bottom: 10px;
+ margin-top: 10px;
 }
 
 .tb {
@@ -91,7 +94,12 @@ header li {
 
 header a {
   text-decoration: none;
-  color: black;
+  font-family: droid-serif;
+  color: #575757;
+}
+
+header a:hover {
+  text-decoration: underline;
 }
 
 .banner {
@@ -206,6 +214,17 @@ img {
 
 .all-surveys li {
   margin-top: 10px;
+  font-family: droid-sans, sans-serif;
+  color: #575757;
+  border: 1px solid gray;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  -moz-box-shadow:    1px 3px 5px 2px #ccc;
+  -webkit-box-shadow: 1px 3px 5px 2px #ccc;
+  box-shadow:         1px 3px 5px 2px #ccc;
+
 }
 
 .survey-list {
@@ -257,7 +276,31 @@ img {
   margin-top: 10px;
 }
 
+.edit-question-buttons {
+  position: relative;
+}
 
+.edit-question-container {
+  font-family: droid-sans, sans-serif;
+  color: #575757;
+  border: 1px solid gray;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  -moz-box-shadow:    1px 3px 5px 2px #ccc;
+  -webkit-box-shadow: 1px 3px 5px 2px #ccc;
+  box-shadow:         1px 3px 5px 2px #ccc;
+  text-decoration: none;
+  margin-right: 100px;
+  margin-top: 20px; 
+}
+
+.delete-question-btn {
+  position: absolute;
+  top: 0px;
+  left: 247px;
+}
 
 
 
