@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
  //  $('#question-textarea').hide();
- //  $('#add-question-btn').hide();
+ //  $('#back-to-survey').hide();
  //  $('#edit-title-btn').val('Save');
   
 
- //  // Makes sure user can't create a survey with an empty title
- //  $('input[type="submit"]').attr('disabled','disabled');
+ // //  // Makes sure user can't create a survey with an empty title
+ // //  $('input[type="submit"]').attr('disabled','disabled');
    
- // $('input[type="text"]').keyup(function() {
- //    if($(this).val() != '') {
- //       $('input[type="submit"]').removeAttr('disabled');
- //    }
- //  });
+ // // $('input[type="text"]').keyup(function() {
+ // //    if($(this).val() != '') {
+ // //       $('input[type="submit"]').removeAttr('disabled');
+ // //    }
+ // //  });
 
  
   
