@@ -90,6 +90,19 @@ post '/surveys/:survey_id/edit' do
   end
 end
 
+get '/surveys/:survey_id/send/email' do
+  if authorized?(params[:survey_id])
+    @survey = Survey.find(params[:survey_id])
+    erb :'surveys/send_via_email'
+  end
+end
+
+post '/surveys/:survey_id/send/email' do
+  if authorized?(params[:survey_id])
+    @survey = Survey.find(params[:survey_id])
+    erb :'surveys/email_text_body'
+  end
+end
 
 get '/surveys/:survey_id' do
   if authorized?(params[:survey_id])
@@ -122,3 +135,5 @@ get '/url/:url' do
   end
   # redirect to("/survey/#{@survey.id}")
 end
+
+
