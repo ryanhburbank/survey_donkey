@@ -10,7 +10,7 @@
   <% @answers.each do |answer| %>
     
     <form action="/answers/<%= answer.id %>/edit" method="post">
-      <textarea rows="4" cols="40" name="answer[text]"><%= answer.text %></textarea>
+      <textarea rows="4" cols="40" name="text"><%= answer.text %></textarea>
       <input class="btn" type="submit" value="Save">
     </form>
     <form action="/answers/<%= answer.id %>/delete" method="post">
