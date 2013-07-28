@@ -13,13 +13,13 @@ gem 'bcrypt-ruby', '~>3.0.0'
 gem 'activesupport'
 gem 'activerecord'
 gem 'mail'
-
+gem 'heroku'
 gem 'rake'
 gem 'sinatra-flash'
 
 gem 'shotgun'
 gem 'faker'
 
-group :test do
-  gem 'rspec'
-end
+# group :test do
+#   gem 'rspec'
+# end
