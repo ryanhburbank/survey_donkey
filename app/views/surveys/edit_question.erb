@@ -1,5 +1,5 @@
 <h3>Survey: <a href="/surveys/<%= @question.survey.id %>/edit"><%= @question.survey.title %></a></h3>
-<a href="/surveys/<%=@question.survey.id%>/edit"><button class="btn">Back To Survey</button></a>  
+<a class="btn" href="/surveys/<%=@question.survey.id%>/edit">Back To Survey</a>  
 <h4>Question:</h4>
 <form action="/questions/<%= @question.id %>/edit" method="post">
   <textarea rows="4" cols="40" name="question[text]"><%= @question.text %></textarea>

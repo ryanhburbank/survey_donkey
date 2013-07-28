@@ -37,6 +37,7 @@ end
 get '/surveys/:survey_id/send' do
   if authorized?(params[:survey_id])
     @survey = current_survey(params[:survey_id])
+    Survey.update(@survey.id, sent: 1)
     erb :'surveys/send_survey'
   else
     get_failure
@@ -62,6 +63,17 @@ get '/surveys/question/:question_id/edit' do
     erb :'/surveys/edit_survey'
   else
     get_failure
+    erb :index
+  end
+end
+
+post '/surveys/:survey_id/delete' do
+  if authorized?(params[:survey_id])
+    survey = Survey.find(params[:survey_id])
+    survey.destroy
+    redirect back
+  else
+    post_failure
     erb :index
   end
 end
