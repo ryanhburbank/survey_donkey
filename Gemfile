@@ -12,6 +12,7 @@ gem 'thin'
 gem 'bcrypt-ruby', '~>3.0.0'
 gem 'activesupport'
 gem 'activerecord'
+gem 'mail'
 
 gem 'rake'
 gem 'sinatra-flash'
