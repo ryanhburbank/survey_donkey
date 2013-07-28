@@ -1,31 +1,28 @@
+<div class="edit-survey-form">
+  <h2>Current Survey: <span id='survey-title'><%= @survey.title %></span></h2>
 
-<h2>Current Survey: <%= @survey.title %></h2>
+  <form id="edit-title-form" action="/surveys/<%= @survey.id %>/edit" method="post">
+    <input id="edit-title-text" class="tb "type="text" value="" name="survey[title]" placeholder="survey name">
+    <input id="edit-title-btn" class="btn" type="submit" value="Save">
+  </form>
 
-<form action="/surveys/<%= @survey.id %>/edit" method="post">
-  <input type="text" value="<%= @survey.title %>" name="survey[title]">
-  <input class="survey_edit_buttons" type="submit" value="Edit Title">
-</form>
+  <form id="add-question-form" method="post" action="/questions/<%= @survey.id %>/new">
+    <textarea id="question-textarea" rows="4" cols="40" name="question[text]"></textarea>
+    <input id="add-question-btn" class="btn" type="submit" value="Add Question">
+  </form> 
 
-<form id="Add_question" method="post" action="/questions/<%= @survey.id %>/new">
-  <textarea rows="4" cols="40" name="question[text]"></textarea>
-  <input class="survey_edit_buttons" type="submit" value="Add Question">
-</form> 
-
-<% @questions.each do |question| %>
-  <ul>
-    <li>
-        <a href="/questions/<%= question.id %>/edit"><button>Edit</button></a>
-        <a href="/questions/<%= question.id %>/edit"><button>Add Responses</button></a>
-        <form action="/questions/<%= question.id %>/delete" method="post">
-          <input class="survey_edit_buttons" type="submit" value="Delete">
-        </form>
-        <%= question.text %>
-    </li>
-  </ul>
-<% end %>
-<!-- <form id="results_display" method="post" action="/surveys/:id/results">
-  <input class="survey_edit_buttons" type="submit" value="Display results!">
-</form>  --> 
-<!-- 
-<form id="preview_survey" method="post" action="/surveys/:id/preview"><input class="survey_edit_buttons" type="submit" value="Display preview!"></form>
- -->
+  <% @questions.each do |question| %>
+    <ul>
+      <li>
+        <span>
+          <a href="/questions/<%= question.id %>/edit"><button class="btn">Edit</button></a>
+          <a href="/questions/<%= question.id %>/edit"><button class="btn">Add Responses</button></a>
+          <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
+            <input class="btn" type="submit" value="Delete">
+          </form>
+        </span>
+          <%= question.text %>
+      </li>
+    </ul>
+  <% end %>
+</div>
