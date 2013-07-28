@@ -1,4 +1,4 @@
-
+<div class="surveys-container"
   <a href="/surveys/new"><h1 class="profile-create">Create A Survey!</h1></a>
   <div class="all-surveys">
     <h2 class="list-title">All Surveys</h2>
@@ -6,9 +6,9 @@
      <% @surveys.each do |survey| %>
       <li class="survey-list"> <%= survey.title  %>
         <div class='profile-buttons'>
-          <a href="/surveys/<%= survey.id %>/edit"><button class="btn">Edit</button></a>
-          <a href="/surveys/<%= survey.id %>/send"><button class="btn">Send</button></a>    
-          <a href="/surveys/<%= survey.id %>/results"><button class="btn">Results</button></a>
+          <a class="btn" href="/surveys/<%= survey.id %>/edit">Edit</a>
+          <a class="btn" href="/surveys/<%= survey.id %>/send">Send</a>    
+          <a class="btn" href="/surveys/<%= survey.id %>/results">Results</a>
           <form action="/surveys/<%= survey.id %>/delete" method="post">
           <a href="/surveys/<%= survey.id %>/delete"><button class="btn">Delete</button></a> 
           </form>
@@ -25,9 +25,9 @@
         <% @sent_surveys.each do |survey| %>
           <li> <%= survey.title  %> 
             <div class='profile-buttons'>
-              <a href="/surveys/<%= survey.id %>/edit"><button class="btn">Edit</button></a>
-              <a href="/surveys/<%= survey.id %>/send"><button class="btn">Send</button></a>    
-              <a href="/surveys/<%= survey.id %>/results"><button class="btn">Results</button></a> 
+              <a class="btn" href="/surveys/<%= survey.id %>/edit">Edit</a>
+              <a class="btn" href="/surveys/<%= survey.id %>/send">Send</a>    
+              <a class="btn" href="/surveys/<%= survey.id %>/results">Results</a> 
               <form action="/surveys/<%= survey.id %>/delete" method="post">   
                 <a href="/surveys/<%= survey.id %>/delete"><button class="btn">Delete</button></a>  
               </form>
@@ -37,4 +37,4 @@
       <% end %>
     </ul> 
   </div>
-
+</div>
