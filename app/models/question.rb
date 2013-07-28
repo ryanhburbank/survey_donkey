@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
 
   validates_uniqueness_of :text, :scope => :survey_id
   validates  :text, 
-             :presence => true
+             :presence => {:on => :update } 
 
 end
 
