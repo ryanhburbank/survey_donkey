@@ -328,6 +328,33 @@ img {
   margin-top: 50px;
 }
 
+/*=======================RESULTS====================================*/
+.results {
+  width: 450px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.results li.response_total {
+  width: 400px;
+  position:relative; left: 270px;
+}
+
+.results li {
+  width: 300px;
+  margin: 5px;
+}
+
+.question {
+  border-bottom: 2px solid black;
+}
+
+.results li data{
+  float: right;
+}
+
 
 
 

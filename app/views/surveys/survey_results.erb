@@ -1,9 +1,11 @@
 
   <h2>Survey Results</h2>
   <h4>Survey Title: <%= @survey.title %></h4>
-  <ul>
+  <ul class="results">
     <% @questions.each do |question|  %>
+    <div class="question">
     <li> Question: <%= question.text %> <br/>
+      <li class="response_total">Number of responses</li>
         <ol> <% question.answers.each do |answer| %>
             <li><%= answer.text %> - 
                 <data> <%= answer.responses.count %></data>
@@ -11,6 +13,7 @@
           <% end %>
         </ol>
     </li>
+    </div>
     <% end %>
   </ul>
 
