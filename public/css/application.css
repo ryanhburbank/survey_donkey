@@ -329,7 +329,7 @@ img {
 
 .delete-question-btn {
   position: absolute;
-  top: 0px;
+/*  bottom: px;*/
   left: 247px;
 }
 
@@ -371,19 +371,41 @@ img {
   width: 800px;
 }
 
+.edit-question-page h4 {
+  margin-bottom: 0px;
+}
+
 .formbtn {
   margin-top: 0px;
 }
 
 .edit-question-form {
-
+  margin-bottom: 30px;
  
 }
 
-.edit-question-form-btn {
-  
+.save-question-btn {
+  margin-left: 50px;
+  margin-top: -10px;
 }
 
+.new-response-form {
+   display: inline-block;
+  float: left;
+  margin-left: 160px;
+  margin-top: -47px;
+}
+
+.delete-response-form {
+  display: inline-block;
+  float: left;
+  margin-left: 142px;
+  margin-top: -47px;
+}
+
+.response-buttons {
+  margin-top: 4px;
+}
 /*======================GLOBAL BY STYLE=====================*/
 .container-shadow {
   font-family: droid-sans, sans-serif;

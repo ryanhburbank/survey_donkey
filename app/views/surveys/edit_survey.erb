@@ -5,11 +5,11 @@
 
     <form id="edit-title-form" action="/surveys/<%= @survey.id %>/edit" method="post">
       <input id="edit-title-text" class="tb "type="text" value="" name="survey[title]" placeholder="survey name" required>
-      <input id="edit-title-btn" class="btn" type="submit" value="Save">
+      <input id="edit-title-btn" class="btn" type="submit" value="Save / Change">
     </form>
 
     <form id="add-question-form" method="POST" action="/questions/<%= @survey.id %>/new">
-      <textarea id="question-textarea" rows="4" cols="40" name="question[text]"></textarea>
+      <textarea id="question-textarea" rows="4" cols="40" name="question[text]" placeholder="add a question" required></textarea>
       <span class="edit-survey-buttons">
       <input id="add-question-btn" class="btn add-question" type="submit" value="Add Question">
       <%= erb :'/partials/_survey_tabs' %>
@@ -17,6 +17,7 @@
     <!-- <a id="back-to-survey" class="btn" href="/surveys/<%= @survey.id %>/edit">Back To Survey</a> -->
   </span>
   <div class="question-container">
+    <h3>Survey Questions:</h3>
     <% @questions.each do |question| %>
       <ul>
         <li class="edit-question-container">

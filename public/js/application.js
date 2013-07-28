@@ -1,8 +1,7 @@
 $(document).ready(function() {
-  
+
   if($('#survey-title').text() === "New Survey"){
-    $('#question-textarea').hide();
-    $('#back-to-survey').hide();
+
     $('#add-question-btn').hide();
     $('.survey-nav-buttons').hide();
   }
@@ -16,13 +15,12 @@ $(document).ready(function() {
     $.post(url, data, function(response){
       $('#survey-title').html($(response).find('#survey-title').text());
     });
-    $('#edit-title-text').hide();
-    $('#edit-title-btn').hide();
+  
     $('#question-textarea').show();
     $('#add-question-btn').show();
     $('.survey-nav-buttons').show();
-
   });
+
   $('#add-question-form').submit(function(addQuestion){
     addQuestion.preventDefault();
 
@@ -37,5 +35,21 @@ $(document).ready(function() {
       $('.survey-nav-buttons').show();
     });
   });
+
+  $('.new-response-form').submit(function(addQuestion){
+    addQuestion.preventDefault();
+
+      var url = $(this).attr('action');
+      var data = $(this).serialize();
+
+      $.post(url, data, function(response){
+        $('#responses').html($(response).find('#responses'));
+      });
+
+
+
+  });
+
+
 
 });
