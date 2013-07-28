@@ -1,35 +1,41 @@
 $(document).ready(function() {
-
- //  $('#question-textarea').hide();
- //  $('#back-to-survey').hide();
- //  $('#edit-title-btn').val('Save');
   
+  if($('#survey-title').text() === "New Survey"){
+    $('#question-textarea').hide();
+    $('#back-to-survey').hide();
+    $('#add-question-btn').hide();
+    $('.survey-nav-buttons').hide();
+  }
 
- // //  // Makes sure user can't create a survey with an empty title
- // //  $('input[type="submit"]').attr('disabled','disabled');
+  $('#edit-title-form').submit(function(updateTitle){
+    updateTitle.preventDefault();
    
- // // $('input[type="text"]').keyup(function() {
- // //    if($(this).val() != '') {
- // //       $('input[type="submit"]').removeAttr('disabled');
- // //    }
- // //  });
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
 
- 
-  
- //  $('#edit-title-form').submit(function(updateTitle){
- //    updateTitle.preventDefault();
-   
- //    var url = $(this).attr('action');
- //    var data = $(this).serialize();
+    $.post(url, data, function(response){
+      $('#survey-title').html($(response).find('#survey-title').text());
+    });
+    $('#edit-title-text').hide();
+    $('#edit-title-btn').hide();
+    $('#question-textarea').show();
+    $('#add-question-btn').show();
+    $('.survey-nav-buttons').show();
 
- //    $.post(url, data, function(response){
- //      $('#survey-title').html($(response).find('#survey-title').text());
- //    });
- //  });
+  });
+  $('#add-question-form').submit(function(addQuestion){
+    addQuestion.preventDefault();
 
- //    $('#edit-title-text').hide();
- //    $('#edit-title-btn').hide();
- //    $('#question-textarea').show();
- //    $('#add-question-btn').show();
- //    $('#')
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    
+    $.post(url, data, function(response){
+      console.log(response);
+      $('.question-container').html($(response).find('.question-container'));
+
+      $('#question-textarea').val("");
+      $('.survey-nav-buttons').show();
+    });
+  });
+
 });
