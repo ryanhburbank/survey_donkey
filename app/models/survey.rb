@@ -1,8 +1,8 @@
 class Survey < ActiveRecord::Base
   # Remember to create a migration!
   belongs_to :user
-  has_many   :answers, :through => :questions, dependent: :destroy 
-  has_many   :questions
+  has_many   :answers, :through => :questions
+  has_many   :questions, dependent: :destroy 
 
   validates :title, :presence => true
   
