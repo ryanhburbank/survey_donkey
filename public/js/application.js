@@ -1,7 +1,34 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#question-textarea').hide();
+  $('#add-question-btn').hide();
+  $('#edit-title-btn').val('Save');
+  
+
+  // Makes sure user can't create a survey with an empty title
+  $('input[type="submit"]').attr('disabled','disabled');
+   
+ $('input[type="text"]').keyup(function() {
+    if($(this).val() != '') {
+       $('input[type="submit"]').removeAttr('disabled');
+    }
+  });
+
+ 
+  
+  $('#edit-title-form').submit(function(updateTitle){
+    updateTitle.preventDefault();
+   
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+
+    $.post(url, data, function(response){
+      $('#survey-title').html($(response).find('#survey-title').text());
+    });
+
+    $('#edit-title-text').hide();
+    $('#edit-title-btn').hide();
+    $('#question-textarea').show();
+    $('#add-question-btn').show();
+  });
 });

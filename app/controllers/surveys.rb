@@ -70,6 +70,7 @@ post '/surveys/:survey_id/edit' do
   if authorized?(params[:survey_id])
     @survey_title = params[:survey][:title]
     Survey.update(params[:survey_id], :title => params[:survey][:title])
+    
     redirect back
   else
     post_failure

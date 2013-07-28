@@ -1,9 +1,9 @@
 <h3>Survey: <a href="/surveys/<%= @question.survey.id %>/edit"><%= @question.survey.title %></a></h3>
-
+<a href="/surveys/<%=@question.survey.id%>/edit"><button class="btn">Back To Survey</button></a>  
 <h4>Question:</h4>
 <form action="/questions/<%= @question.id %>/edit" method="post">
   <textarea rows="4" cols="40" name="question[text]"><%= @question.text %></textarea>
-  <input class="survey_edit_buttons" type="submit" value="Save">
+  <input class="btn" type="submit" value="Save">
 </form>
 
 <h4>Possible Responses:</h4>
@@ -11,14 +11,14 @@
     
     <form action="/answers/<%= answer.id %>/edit" method="post">
       <textarea rows="4" cols="40" name="answer[text]"><%= answer.text %></textarea>
-      <input class="survey_edit_buttons" type="submit" value="Save">
+      <input class="btn" type="submit" value="Save">
     </form>
     <form action="/answers/<%= answer.id %>/delete" method="post">
-      <input class="survey_edit_buttons" type="submit" value="Delete">
+      <input class="btn" type="submit" value="Delete">
     </form>
   <% end %>
   <form action="/questions/<%= @question.id %>/answers/new" method="post">
-    <input class="survey_edit_buttons" type="submit" value="Add Response">
+    <input class="btn" type="submit" value="Add Response">
   </form>
 
 
