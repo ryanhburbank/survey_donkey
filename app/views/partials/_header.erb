@@ -1,12 +1,12 @@
 <header>
-  <a href="/"><h1 class="banner" id="banner"><img src="/images/donkey.jpg">Survey Donkey</h1></a>
+  <a class="btn" href="/"><h1 class="banner" id="banner"><img src="/images/donkey.jpg">Survey Donkey</h1></a>
   <% if current_user? %>
     <nav>
       <ul>
-        <li><a href="/users/edit">Account Info</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/surveys/new">Create a Survey</a></li>
-        <li><a class="logout" id="logout" href="/users/logout">Logout</a></li>
+        <li><a class="btn" href="/users/edit">Account Info</a></li>
+        <li><a class="btn" href="/profile">Profile</a></li>
+        <li><a class="btn" href="/surveys/new">Create a Survey</a></li>
+        <li><a id="logout" class="btn" href="/users/logout">Logout</a></li>
       </ul>
     </nav>
   <% end %>
