@@ -93,6 +93,8 @@ end
 get '/surveys/:survey_id/send/email' do
   if authorized?(params[:survey_id])
     @survey = Survey.find(params[:survey_id])
+    @url = @survey.url
+    @full_url = "http://localhost:9393/url/#{@url}"
     erb :'surveys/send_via_email'
   end
 end
@@ -100,7 +102,20 @@ end
 post '/surveys/:survey_id/send/email' do
   if authorized?(params[:survey_id])
     @survey = Survey.find(params[:survey_id])
-    erb :'surveys/email_text_body'
+    @url = @survey.url
+    emails = params[:emails]
+    subject = params[:subject]
+    body = params[:body]
+    mail = Mail.new do
+      from "test@surveydonkey.com"
+      to  emails
+      subject subject
+      body  body
+    end
+
+    mail.delivery_method :sendmail
+    mail.deliver
+    erb :'surveys/survey_sent'
   end
 end
 
