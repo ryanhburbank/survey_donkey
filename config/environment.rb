@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 require 'faker'
 require 'sinatra/flash'
+require 'mail'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
