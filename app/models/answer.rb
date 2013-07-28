@@ -4,7 +4,7 @@ class Answer < ActiveRecord::Base
 
   validates :text, 
             :uniqueness => true, 
-            :presence => true
+            :presence => { :on => :update }
 
   validates_uniqueness_of :text, 
                           :scope => :question_id
