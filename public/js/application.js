@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
- //  $('#question-textarea').hide();
- //  $('#add-question-btn').hide();
- //  $('#edit-title-btn').val('Save');
+  $('#question-textarea').hide();
+  $('#back-to-survey').hide();
+  $('#edit-title-btn').val('Save');
   
 
  //  // Makes sure user can't create a survey with an empty title
@@ -16,16 +16,16 @@ $(document).ready(function() {
 
  
   
- //  $('#edit-title-form').submit(function(updateTitle){
- //    updateTitle.preventDefault();
+  $('#edit-title-form').submit(function(updateTitle){
+    updateTitle.preventDefault();
    
- //    var url = $(this).attr('action');
- //    var data = $(this).serialize();
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
 
- //    $.post(url, data, function(response){
- //      $('#survey-title').html($(response).find('#survey-title').text());
- //    });
- //  });
+    $.post(url, data, function(response){
+      $('#survey-title').html($(response).find('#survey-title').text());
+    });
+  });
 
  //    $('#edit-title-text').hide();
  //    $('#edit-title-btn').hide();

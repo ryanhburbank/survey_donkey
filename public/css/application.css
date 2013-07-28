@@ -71,6 +71,9 @@ textarea {
   margin-bottom:0px;
 }
 
+
+
+
 /*======================HEADER===========================*/
 header {
   width: 100%;
@@ -316,6 +319,24 @@ img {
   left: 247px;
 }
 
+.add-question {
+  float: left;
+  margin-top: 10px;
+  margin-right: 5px;
+
+}
+
+
+.survey-tabs {
+  float: left;
+  margin-top: 10px;
+  
+}
+
+.question-container {
+  margin-top: 70px;
+  border: 1px solid gray;
+}
 
 /*========================EDIT PROFILE=================================*/
 .user-profile-container {
