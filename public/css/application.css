@@ -12,7 +12,7 @@ font-family: droid-serif, serif;*/
   border-radius:6px;
   border:1px solid #dcdcdc;
   display:inline-block;
-  color:#777777;
+  color:#575757;
   font-family:Arial;
   font-size:15px;
   font-weight:bold;
@@ -59,6 +59,12 @@ textarea {
  outline: none;
  margin-bottom: 10px;
  margin-top: 10px;
+}
+
+.answer-textarea {
+  width: 400px;
+  height: 80px;
+  margin-left: 50px;
 }
 
 .tb {
@@ -134,7 +140,7 @@ img {
 }
 
 .index-create {
-  margin-top: 250px;
+  margin-top: 300px;
   -moz-box-shadow:inset 0px 1px 10px 0px #ffffff;
   -webkit-box-shadow:inset 0px 1px 10px 0px #ffffff;
   box-shadow:inset 0px 1px 10px 0px #ffffff;
@@ -147,7 +153,7 @@ img {
   border-radius:11px;
   border:1px solid #dcdcdc;
   display:inline-block;
-  color:#777777;
+  color:#575757;
   font-family:arial;
   font-size:43px;
   font-weight:bold;
@@ -206,6 +212,13 @@ img {
 }
 
 /*========================= PROFILE ================================*/
+
+.surveys-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 60%;
+}
+
 .sent-surveys {
   float:left;
   margin-left: 100px;
@@ -273,7 +286,7 @@ img {
   border-radius:11px;
   border:1px solid #dcdcdc;
   display:inline-block;
-  color:#777777;
+  color:#575757;
   font-family:arial;
   font-size:22px;
   font-weight:bold;
@@ -316,7 +329,7 @@ img {
 
 .delete-question-btn {
   position: absolute;
-  top: 0px;
+/*  bottom: px;*/
   left: 247px;
 }
 
@@ -335,8 +348,8 @@ img {
 }
 
 .question-container {
-  margin-top: 70px;
-  border: 1px solid gray;
+  margin-top: 90px;
+ 
 }
 
 /*========================EDIT PROFILE=================================*/
@@ -387,8 +400,57 @@ img {
   width: 800px;
 }
 
+.edit-question-page h4 {
+  margin-bottom: 0px;
+}
 
+.formbtn {
+  margin-top: 0px;
+}
 
+.edit-question-form {
+  margin-bottom: 30px;
+ 
+}
+
+.save-question-btn {
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.new-response-form {
+   display: inline-block;
+  float: left;
+  margin-left: 160px;
+  margin-top: -47px;
+}
+
+.delete-response-form {
+  display: inline-block;
+  float: left;
+  margin-left: 142px;
+  margin-top: -47px;
+}
+
+.response-buttons {
+  margin-top: 4px;
+}
+/*======================GLOBAL BY STYLE=====================*/
+.container-shadow {
+  font-family: droid-sans, sans-serif;
+  color: #575757;
+  border: 0px solid gray;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  -moz-box-shadow:    1px 3px 5px 2px #ccc;
+  -webkit-box-shadow: 1px 3px 5px 2px #ccc;
+  box-shadow:         1px 3px 5px 2px #ccc;
+  text-decoration: none;
+  margin-right: 100px;
+  margin-top: 20px; 
+}
 
 
 

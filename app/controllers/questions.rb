@@ -12,7 +12,10 @@ end
 post '/questions/:question_id/answers/new' do
   question =  Question.find(params[:question_id])
   if authorized?(question.survey_id)
-    Answer.create(question_id: params[:question_id])
+    answer = Answer.new(question_id: params[:question_id])
+    p answer
+    answer.save
+    answer.errors.each {|error| p error}
     redirect back
   else
     post_failure
