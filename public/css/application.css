@@ -350,7 +350,13 @@ img {
   margin-top: 50px;
 }
 
+/*=================EDIT QUESTION=============================*/
 
+.edit-question-page {
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+}
 
 
 
