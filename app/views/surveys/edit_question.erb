@@ -1,25 +1,27 @@
-<h3>Survey: <a href="/surveys/<%= @question.survey.id %>/edit"><%= @question.survey.title %></a></h3>
-<a class="btn" href="/surveys/<%=@question.survey.id%>/edit">Back To Survey</a>  
-<h4>Question:</h4>
-<form action="/questions/<%= @question.id %>/edit" method="post">
-  <textarea rows="4" cols="40" name="question[text]"><%= @question.text %></textarea>
-  <input class="btn" type="submit" value="Save">
-</form>
-
-<h4>Possible Responses:</h4>
-  <% @answers.each do |answer| %>
-    
-    <form action="/answers/<%= answer.id %>/edit" method="post">
-      <textarea rows="4" cols="40" name="text"><%= answer.text %></textarea>
-      <input class="btn" type="submit" value="Save">
-    </form>
-    <form action="/answers/<%= answer.id %>/delete" method="post">
-      <input class="btn" type="submit" value="Delete">
-    </form>
-  <% end %>
-  <form action="/questions/<%= @question.id %>/answers/new" method="post">
-    <input class="btn" type="submit" value="Add Response">
+<div class="edit-question-page">
+  <h3>Survey: <a href="/surveys/<%= @question.survey.id %>/edit"><%= @question.survey.title %></a></h3>
+  <a class="btn" href="/surveys/<%=@question.survey.id%>/edit">Back To Survey</a>  
+  <h4>Question: <%= @question.text %></h4>
+  <form action="/questions/<%= @question.id %>/edit" method="post">
+    <textarea rows="4" cols="40" name="question[text]"><%= @question.text %></textarea>
+    <input class="btn" type="submit" value="Save">
   </form>
 
+  <h4>Possible Responses:</h4>
+    <% @answers.each do |answer| %>
+      
+      <form action="/answers/<%= answer.id %>/edit" method="post">
+        <textarea rows="4" cols="40" name="text"><%= answer.text %></textarea>
+        <input class="btn" type="submit" value="Save">
+      </form>
+      <form action="/answers/<%= answer.id %>/delete" method="post">
+        <input class="btn" type="submit" value="Delete">
+      </form>
+    <% end %>
+    
+    <form action="/questions/<%= @question.id %>/answers/new" method="post">
+      <input class="btn" type="submit" value="Add Response">
+    </form>
+</div>
 
 
