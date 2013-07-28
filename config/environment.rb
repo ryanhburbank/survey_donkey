@@ -17,6 +17,7 @@ require 'logger'
 require 'faker'
 require 'sinatra/flash'
 require 'mail'
+require 'gchart'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
