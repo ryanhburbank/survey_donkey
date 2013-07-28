@@ -11,7 +11,7 @@
     <span>
     <input id="add-question-btn" class="btn" type="submit" value="Add Question">
   </form> 
-  <a href="/surveys/<%= @survey.id %>/edit"><button class="btn">Back To Survey</button></a>
+  <a class="btn" href="/surveys/<%= @survey.id %>/edit">Back To Survey</a>
   </span>
   <% @questions.each do |question| %>
     <ul>
@@ -21,8 +21,8 @@
           <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
             <input class="btn delete-question-btn" type="submit" value="Delete">
           </form>
-          <a href="/questions/<%= question.id %>/edit"><button class="btn">Edit</button></a>
-          <a href="/questions/<%= question.id %>/edit"><button class="btn">Add Responses</button></a>
+          <a class="btn" href="/questions/<%= question.id %>/edit">Edit</a>
+          <a class="btn" href="/questions/<%= question.id %>/edit">Add Responses</a>
         </span>
       </li>
     </ul>
