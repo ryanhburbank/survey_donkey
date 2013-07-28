@@ -6,7 +6,7 @@
     <input id="edit-title-btn" class="btn" type="submit" value="Save">
   </form>
 
-  <form id="add-question-form" method="post" action="/questions/<%= @survey.id %>/new">
+  <form id="add-question-form" method="POST" action="/questions/<%= @survey.id %>/new">
     <textarea id="question-textarea" rows="4" cols="40" name="question[text]"></textarea>
     <span>
     <input id="add-question-btn" class="btn" type="submit" value="Add Question">

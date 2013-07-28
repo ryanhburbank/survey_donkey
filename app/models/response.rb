@@ -4,5 +4,4 @@ class Response < ActiveRecord::Base
   validates :email, :presence => true
   validates_uniqueness_of :answer_id, :scope => :email 
 
-
 end

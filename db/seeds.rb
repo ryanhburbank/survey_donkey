@@ -11,7 +11,7 @@ User.create(
 end
 
  User.all.each do |user|
-   Survey.create(user_id: user.id, title: Faker::Lorem.word)
+   Survey.create(user_id: user.id, title: Faker::Lorem.word,)
  end
 
  Survey.all.each do |survey|
