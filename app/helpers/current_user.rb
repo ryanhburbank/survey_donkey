@@ -64,4 +64,38 @@ def login_failure
   flash[:error] = "Login failed! Please try again."
 end
 
+def password_update(current_password, new_pass, new_pass_confirm)
+  @user = User.find(session[:id])
+  if @user.authenticate(current_password) && new_pass == new_pass_confirm
+     @user.update_attributes(:password => new_pass,
+                             :password_confirmation => new_pass_confirm)
+    if @user.authenticate(current_password)
+      flash[:error] = "Authentication failed, please try again"
+      redirect to('/users/edit')
+    else
+      flash[:error] = "Password update successful!"
+      redirect to('/users/edit')
+    end
+  else
+    flash[:error] = "Authentication failed, please try again"
+    redirect to('/users/edit')
+  end
+end
+
+def email_update(current_password, new_email)
+  user = User.find(session[:id])
+  @user = user.authenticate(current_password)
+
+  if @user
+     @user.update_attributes(:email => new_email,
+                             :password => current_password,
+                             :password_confirmation => current_password)
+     flash[:error] = "Email update successful!"
+     redirect to('/users/edit')
+  else
+    flash[:error] = "Authentication failed, please try again"
+    redirect to('/users/edit')
+  end
+end
+
 

@@ -1,0 +1,12 @@
+<form action="/users/edit/email" method="POST">
+  <input type="text" name="new_email" value="<%= @user.try(:email)%>">
+  <input type="password" name="current_password" placeholder="enter your current password ...">
+  <input type="submit" value="Update Email">
+</form>
+
+<form action="/users/edit/password" method="POST">
+  <input type="password" name="current_password" placeholder="enter your current password ...">
+  <input type="password" name="new_password" placeholder="enter your new password ...">
+  <input type="password" name="new_password_confirmation" placeholder="confirm your new password...">
+  <input type="submit" value="Update Password">
+</form>
