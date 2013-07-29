@@ -13,6 +13,8 @@ gem 'bcrypt-ruby', '~>3.0.0'
 gem 'activesupport'
 gem 'activerecord'
 gem 'mail'
+gem 'twitter'
+
 gem 'heroku'
 gem 'rake'
 gem 'sinatra-flash'
