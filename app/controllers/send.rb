@@ -18,7 +18,7 @@ post "/send/:survey_id/tweet" do
       send_tweet(tweet_construct(handles,body,@survey))
 
       Survey.update(@survey.id, sent: 1)
-      flash[:error] = "Survey Sent!"
+      flash[:error] = "Tweet Sent!"
       redirect to("/surveys/#{@survey.id}/send")
     else
       tweet_error(handles, body)
@@ -29,28 +29,6 @@ post "/send/:survey_id/tweet" do
     erb :index
   end
 end
-
-get "/send/:survey_id/link" do
-  if authorized?(params[:survey_id]) 
-    @survey = current_survey(params[:survey_id])
-    erb :'/send/send_link'
-  else
-    get_failure
-    erb :index
-  end
-end
-
-post "/send/:survey_id/link" do
-  if authorized?(params[:survey_id])
-    @survey = current_survey(params[:survey_id])
-    flash[:error] = "Survey Sent!"
-    erb :'/send/send_portal'
-  else
-    post_failure
-    erb :index
-   end
-end
-
 
 get '/send/:survey_id/email' do
   if authorized?(params[:survey_id])
@@ -78,6 +56,28 @@ post '/send/:survey_id/email' do
     mail.delivery_method :sendmail
     mail.deliver
     flash[:error] = "Email sent!"
-    redirect to('/surveys/#{@survey.id}/send')
+    redirect to("/surveys/#{@survey.id}/send" )
   end
 end
+
+get "/send/:survey_id/link" do
+  if authorized?(params[:survey_id]) 
+    @survey = current_survey(params[:survey_id])
+    erb :'/send/send_link'
+  else
+    get_failure
+    erb :index
+  end
+end
+
+post "/send/:survey_id/link" do
+  if authorized?(params[:survey_id])
+    @survey = current_survey(params[:survey_id])
+    flash[:error] = "Survey Sent!"
+    erb :'/send/send_portal'
+  else
+    post_failure
+    erb :index
+   end
+end
+

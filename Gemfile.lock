@@ -28,10 +28,8 @@ GEM
     excon (0.25.3)
     faker (1.2.0)
       i18n (~> 0.5)
-<<<<<<< HEAD
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-=======
     heroku (2.39.5)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -40,7 +38,6 @@ GEM
       rubyzip
     heroku-api (0.3.14)
       excon (~> 0.25.1)
->>>>>>> master
     i18n (0.6.4)
     launchy (2.3.0)
       addressable (~> 2.3)
@@ -50,11 +47,8 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
-<<<<<<< HEAD
     multipart-post (1.2.0)
-=======
     netrc (0.7.7)
->>>>>>> master
     pg (0.16.0)
     polyglot (0.3.3)
     rack (1.5.2)
