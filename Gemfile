@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 ruby '1.9.3'
 # PostgreSQL driver
 gem 'pg'
@@ -14,8 +14,10 @@ gem 'activesupport'
 gem 'activerecord'
 gem 'mail'
 gem 'twitter'
+
 gem 'googlecharts'
 gem 'heroku'
+
 gem 'rake'
 gem 'sinatra-flash'
 
