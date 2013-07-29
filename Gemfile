@@ -20,6 +20,6 @@ gem 'sinatra-flash'
 gem 'shotgun'
 gem 'faker'
 
-# group :test do
-#   gem 'rspec'
-# end
+group :test do
+  gem 'rspec'
+end
