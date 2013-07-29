@@ -18,7 +18,7 @@ require 'faker'
 require 'sinatra/flash'
 require 'mail'
 require 'twitter'
-
+require 'gchart'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'digest/md5'

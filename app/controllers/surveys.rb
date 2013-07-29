@@ -100,9 +100,11 @@ end
 
 post '/surveys/:id/response' do
   survey = Survey.find_by_id(params[:id])
+  p params
   survey.questions.each do |question|
     response = Response.new(:email => params[:email],
-                            :answer_id => params[:"#{question.id}"])
+                            :answer_id => params[:"#{question.id}"].to_i)
+    p response
     response.save
   end
 

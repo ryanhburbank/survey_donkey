@@ -1,20 +1,19 @@
-
+<div class="results-container">
   <h2>Survey Results</h2>
-  <h4>Survey Title: <%= @survey.title %></h4>
+  <h3>Survey Title: <%= @survey.title %></h3>
   <ul class="results">
     <% @questions.each do |question|  %>
-    <div class="question">
-    <li> Question: <%= question.text %> <br/>
-      <li class="response_total">Number of responses</li>
-        <ol> <% question.answers.each do |answer| %>
-            <li><%= answer.text %> - 
-                <data> <%= answer.responses.count %></data>
-              </li>
-          <% end %>
-        </ol>
-    </li>
-    
-    </div>
+      <div class="question container-shadow">
+        <li><h4>Question: <%= question.text %></h4><br/>
+          <li class="response_total">Number of responses</li>
+            <ol><% question.answers.each do |answer| %>
+                <li><h4><%= answer.text %></h4>
+                  <data> <%= answer.responses.count %></data>
+                </li>
+              <% end %>
+            </ol>
+        </li>
+      </div>
     <% end %>
   </ul>
-
+</div>

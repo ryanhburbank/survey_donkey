@@ -14,7 +14,7 @@ gem 'activesupport'
 gem 'activerecord'
 gem 'mail'
 gem 'twitter'
-
+gem 'googlecharts'
 gem 'heroku'
 gem 'rake'
 gem 'sinatra-flash'

@@ -15,7 +15,9 @@ end
  end
 
  Survey.all.each do |survey|
+   survey.unique_url
    3.times do 
+
     Question.create(survey_id: survey.id, 
                     text: Faker::Company.catch_phrase
                     )

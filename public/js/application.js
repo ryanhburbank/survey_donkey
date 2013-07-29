@@ -43,6 +43,7 @@ $(document).ready(function() {
       var data = $(this).serialize();
 
       $.post(url, data, function(response){
+        console.log(response);
         $('.responses-container').html($(response).find('.responses-container'));
         $('.delete-response-form btn').show();
       });
