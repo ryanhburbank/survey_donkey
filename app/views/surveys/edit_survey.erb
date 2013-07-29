@@ -16,7 +16,8 @@
     </form> 
     <!-- <a id="back-to-survey" class="btn" href="/surveys/<%= @survey.id %>/edit">Back To Survey</a> -->
   </span>
-<<<<<<< HEAD
+  <div class="question-container">
+    <h3>Survey Questions:</h3>
   <% @survey.questions.each do |question| %>
     <ul>
       <li class="edit-question-container">
@@ -31,11 +32,12 @@
       </li>
     </ul>
   <% end %>
+  </div>
 </div>
-=======
+<!-- =======
   <div class="question-container">
     <h3>Survey Questions:</h3>
-    <% @questions.each do |question| %>
+    <% @questions.each  question %>
       <ul>
         <li class="edit-question-container">
           <p><%= question.text %></p>
@@ -49,7 +51,7 @@
             </form>
         </li>
       </ul>
-    <% end %>
+    <%  %>
   </div>
 
->>>>>>> master
+>>>>>>> master -->
