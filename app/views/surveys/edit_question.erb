@@ -15,18 +15,17 @@
 
   <h4>Possible Responses:</h4>
     <% @answers.each do |answer| %>
-      <div id="responses">
-        <form action="/answers/<%= answer.id %>/edit" method="post">
+      <div class="responses-container">
+        <form class="save-response-form" action="/answers/<%= answer.id %>/edit" method="post">
           <textarea class="answer-textarea" rows="2" cols="30" name="text"><%= answer.text %></textarea>
          <p class="response-buttons"><input class="btn save-question-btn" type="submit" value="Save"></p>
         </form>
-      </div>
-      
+     
       <form class="delete-response-form" action="/answers/<%= answer.id %>/delete" method="post">
         <input class="btn" type="submit" value="Delete">
       </form>
     <% end %>
-    
+    <div>
 </div>
 
 
