@@ -22,9 +22,7 @@
 </head>
   <body>
     <%= erb :'/partials/_header' %>
-    <% if @survey %>
-      <%= erb :'/partials/_survey_tabs' %>
-    <% end %>
+    
     <div class="main-content-container">
       <%= erb :'/partials/_flash_messages' %>
       <%= yield %>

@@ -1,18 +1,22 @@
 <div class="edit-survey-form">
-  <h2>Current Survey: <span id='survey-title'><%= @survey.title %></span></h2>
+  <h2>Current Survey: 
 
-  <form id="edit-title-form" action="/surveys/<%= @survey.id %>/edit" method="post">
-    <input id="edit-title-text" class="tb "type="text" value="" name="survey[title]" placeholder="survey name">
-    <input id="edit-title-btn" class="btn" type="submit" value="Save">
-  </form>
+  <span id='survey-title'><%= @survey.title %></span></h2>
 
-  <form id="add-question-form" method="POST" action="/questions/<%= @survey.id %>/new">
-    <textarea id="question-textarea" rows="4" cols="40" name="question[text]"></textarea>
-    <span>
-    <input id="add-question-btn" class="btn" type="submit" value="Add Question">
-  </form> 
-  <a class="btn" href="/surveys/<%= @survey.id %>/edit">Back To Survey</a>
+    <form id="edit-title-form" action="/surveys/<%= @survey.id %>/edit" method="post">
+      <input id="edit-title-text" class="tb "type="text" value="" name="survey[title]" placeholder="survey name" required>
+      <input id="edit-title-btn" class="btn" type="submit" value="Save / Change">
+    </form>
+
+    <form id="add-question-form" method="POST" action="/questions/<%= @survey.id %>/new">
+      <textarea id="question-textarea" rows="4" cols="40" name="question[text]" placeholder="add a question" required></textarea>
+      <span class="edit-survey-buttons">
+      <input id="add-question-btn" class="btn add-question" type="submit" value="Add Question">
+      <%= erb :'/partials/_survey_tabs' %>
+    </form> 
+    <!-- <a id="back-to-survey" class="btn" href="/surveys/<%= @survey.id %>/edit">Back To Survey</a> -->
   </span>
+<<<<<<< HEAD
   <% @survey.questions.each do |question| %>
     <ul>
       <li class="edit-question-container">
@@ -28,3 +32,24 @@
     </ul>
   <% end %>
 </div>
+=======
+  <div class="question-container">
+    <h3>Survey Questions:</h3>
+    <% @questions.each do |question| %>
+      <ul>
+        <li class="edit-question-container">
+          <p><%= question.text %></p>
+            
+            <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
+              <span class="edit-question-buttons">
+                <input class="btn delete-question-btn" type="submit" value="Delete">
+                <a class="btn" href="/questions/<%= question.id %>/edit">Edit</a>
+                <a class="btn" href="/questions/<%= question.id %>/edit">Add Responses</a>
+              </span>
+            </form>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+>>>>>>> master

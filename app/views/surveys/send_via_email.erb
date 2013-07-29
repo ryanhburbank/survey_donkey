@@ -1,0 +1,12 @@
+<h2>Send out your survey via email</h2>
+
+<h3>Enter the emails you want to send to</h3>
+<form id="send_to_emails" action="/surveys/<%= @survey.id %>/send/email" method="post">
+  <textarea form="send_to_emails" name="emails" cols='40' rows='4' class="emails"></textarea>
+<h3>Enter the email subject and body</h3>
+  <label for='subject_line'>Subject</label>
+  <input type="text" name="subject" id="subject_line" placeholder="subject"><br>
+  <label for='email_body'>Body</label>
+  <textarea name="body" form="send_to_emails" class="email_body" cols="40" rows="10"><%= @full_url %></textarea><br>
+  <input type="submit" value="Send">
+</form>

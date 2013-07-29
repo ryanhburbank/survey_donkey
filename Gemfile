@@ -1,5 +1,5 @@
 source :rubygems
-
+ruby '1.9.3'
 # PostgreSQL driver
 gem 'pg'
 
@@ -15,6 +15,7 @@ gem 'activerecord'
 gem 'mail'
 gem 'twitter'
 
+gem 'heroku'
 gem 'rake'
 gem 'sinatra-flash'
 
