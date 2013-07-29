@@ -98,4 +98,47 @@ def email_update(current_password, new_email)
   end
 end
 
+def valid_handles(handles)
+  handles = handles.split(',')
+  handles.map!{|handle| handle.strip }
+  handles = handles.select{|handle|handle.match(/@([A-Za-z0-9_]{1,15})/)}
+  handles.map!{|handle| " " + handle }
+end
+
+
+def valid_body(body)
+  body.strip
+end
+
+def handle_size(handles)
+  count = 0
+  handles.each{|handle| count += handle.length}
+  count
+end
+
+def tweet_error(handles, body)
+  character_count = (150 - (handle_size(handles) + body.length))
+  flash[:error] = "Your tweet was #{character_count} characters too long!"
+end
+
+def valid_tweet?(handles, body)
+  p handle_size(handles)
+  p body.length
+  # p handle_size(handles)
+  # p handle_size(handles).size
+  # p body.count
+  # p body.count.class
+ handle_size(handles) + body.length < 128
+end
+
+def tweet_construct(handles, body, survey)
+  body + handles.join + " " + "localhost:9393/url/" + survey.url
+end
+
+def send_tweet(staged_tweet)
+  Twitter.update(staged_tweet)
+end
+
+
+
 

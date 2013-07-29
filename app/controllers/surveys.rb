@@ -24,10 +24,9 @@ get '/surveys/:survey_id/results' do
 end
 
 get '/surveys/:survey_id/edit' do
-  if authorized?(params[:survey_id]) 
-    @survey = current_survey(params[:survey_id])
-    @questions = @survey.questions.order("id")
-    erb :'/surveys/edit_survey'
+  if authorized?(params[:survey_id])
+    @survey = current_survey(params[:survey_id]) 
+    erb :"/surveys/edit_survey"
   else
     get_failure
     erb :index
@@ -37,8 +36,7 @@ end
 get '/surveys/:survey_id/send' do
   if authorized?(params[:survey_id])
     @survey = current_survey(params[:survey_id])
-    Survey.update(@survey.id, sent: 1)
-    erb :'surveys/send_survey'
+    erb :'send/send_portal'
   else
     get_failure
     redirect to('/')
