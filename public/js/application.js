@@ -43,13 +43,28 @@ $(document).ready(function() {
       var data = $(this).serialize();
 
       $.post(url, data, function(response){
-        $('#responses').html($(response).find('#responses'));
+        $('.responses-container').html($(response).find('.responses-container'));
+        $('.delete-response-form btn').show();
       });
-
-
-
   });
 
+  $('.save-response-form').submit(function(saveResponse){
+    saveResponse.preventDefault();
+
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+
+    $.post(url, data)
+  });
+
+  $('.delete-response-form').submit(function(deleteResponse){
+    deleteResponse.preventDefault();
+
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    $.post(url, data)
+    $(this).parent().hide();
+  });
 
 
 });
