@@ -18,20 +18,19 @@
   </span>
   <div class="question-container">
     <h3>Survey Questions:</h3>
-    <% @questions.each do |question| %>
-      <ul>
-        <li class="edit-question-container">
-          <p><%= question.text %></p>
-            
-            <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
-              <span class="edit-question-buttons">
-                <input class="btn delete-question-btn" type="submit" value="Delete">
-                <a class="btn" href="/questions/<%= question.id %>/edit">Edit</a>
-                <a class="btn" href="/questions/<%= question.id %>/edit">Add Responses</a>
-              </span>
-            </form>
-        </li>
-      </ul>
-    <% end %>
+  <% @survey.questions.each do |question| %>
+    <ul>
+      <li class="edit-question-container">
+        <p><%= question.text %></p>
+        <span class="edit-question-buttons">
+          <form id='delete-question' action="/questions/<%= question.id %>/delete" method="post">
+            <input class="btn delete-question-btn" type="submit" value="Delete">
+          </form>
+          <a class="btn" href="/questions/<%= question.id %>/edit">Edit</a>
+          <a class="btn" href="/questions/<%= question.id %>/edit">Add Responses</a>
+        </span>
+      </li>
+    </ul>
+  <% end %>
   </div>
-
+</div>

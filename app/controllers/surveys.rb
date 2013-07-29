@@ -24,10 +24,9 @@ get '/surveys/:survey_id/results' do
 end
 
 get '/surveys/:survey_id/edit' do
-  if authorized?(params[:survey_id]) 
-    @survey = current_survey(params[:survey_id])
-    @questions = @survey.questions.order("id")
-    erb :'/surveys/edit_survey'
+  if authorized?(params[:survey_id])
+    @survey = current_survey(params[:survey_id]) 
+    erb :"/surveys/edit_survey"
   else
     get_failure
     erb :index
@@ -37,8 +36,7 @@ end
 get '/surveys/:survey_id/send' do
   if authorized?(params[:survey_id])
     @survey = current_survey(params[:survey_id])
-    Survey.update(@survey.id, sent: 1)
-    erb :'surveys/send_survey'
+    erb :'send/send_portal'
   else
     get_failure
     redirect to('/')
@@ -90,34 +88,6 @@ post '/surveys/:survey_id/edit' do
   end
 end
 
-get '/surveys/:survey_id/send/email' do
-  if authorized?(params[:survey_id])
-    @survey = Survey.find(params[:survey_id])
-    @url = @survey.url
-    @full_url = "http://localhost:9393/url/#{@url}"
-    erb :'surveys/send_via_email'
-  end
-end
-
-post '/surveys/:survey_id/send/email' do
-  if authorized?(params[:survey_id])
-    @survey = Survey.find(params[:survey_id])
-    @url = @survey.url
-    emails = params[:emails]
-    subject = params[:subject]
-    body = params[:body]
-    mail = Mail.new do
-      from "test@surveydonkey.com"
-      to  emails
-      subject subject
-      body  body
-    end
-
-    mail.delivery_method :sendmail
-    mail.deliver
-    erb :'surveys/survey_sent'
-  end
-end
 
 get '/surveys/:survey_id' do
   if authorized?(params[:survey_id])

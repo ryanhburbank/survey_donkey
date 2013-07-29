@@ -28,6 +28,8 @@ GEM
     excon (0.25.3)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     heroku (2.39.5)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -45,6 +47,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
+    multipart-post (1.2.0)
     netrc (0.7.7)
     pg (0.16.0)
     polyglot (0.3.3)
@@ -67,6 +70,7 @@ GEM
     rubyzip (0.9.9)
     shotgun (0.9)
       rack (>= 1.0)
+    simple_oauth (0.2.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -90,6 +94,10 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (4.8.1)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     tzinfo (0.3.37)
 
 PLATFORMS
@@ -110,3 +118,4 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-flash
   thin
+  twitter

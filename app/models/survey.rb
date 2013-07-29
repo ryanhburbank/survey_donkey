@@ -8,7 +8,7 @@ class Survey < ActiveRecord::Base
   
 
   def unique_url
-    self.url = Digest::MD5.hexdigest("#{self.id}")
+    self.url = Digest::MD5.hexdigest("#{self.id}").slice(0..11)
     self.save
   end
 end

@@ -1,0 +1,7 @@
+<%= erb :'/partials/_send_partial' %>  
+<h3><%= @survey.title %></h3>
+<form action="/send/<%= @survey.id %>/tweet" method="POST"> 
+  <textarea name="handles" placeholder="add twitter handles, don't forget to seperate by comma!"></textarea>
+  <textarea name="body" placeholder="type your tweet, remember it must be below 140 characters!"></textarea>
+  <input type="submit" value="Tweet your survey!"> 
+</form>
